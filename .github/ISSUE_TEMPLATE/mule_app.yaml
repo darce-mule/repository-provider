@@ -40,7 +40,6 @@ body:
     attributes:
       label: ">>Rótulos para Anypoint Visualizer<<"
       description: Rótulos para Anypoint Visualizer
+      allowMultiple: true
       options:
         - label: Option 1
-      validations:
-        allowMultiple: true
