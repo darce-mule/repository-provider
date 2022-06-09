@@ -42,10 +42,7 @@ body:
       description: Rótulos para Anypoint Visualizer
       options:
         - name: Option 1
-          value: opt1
         - name: Option 2
-          value: opt2
         - name: Option 3
-          value: opt3
       validations:
         allowMultiple: true
