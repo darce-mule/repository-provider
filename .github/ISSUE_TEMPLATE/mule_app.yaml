@@ -1,71 +1,51 @@
-name: Mule App
-description: Create new Mule Application
-title: "[App]: "
-labels: ["application", "MuleSoft"]
+name: Criação de MuleSoft Application
+description: Criação de repositório de MuleSoft Application
+title: "Criação de Repositório"
+labels: ["application", "MuleSoft", "repositorio", "documentation"]
 assignees:
-  - octocat
+  - ${{github.author}}
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Formulário padrão para criação de repositório no GitHub Itaú Corp
   - type: input
-    id: contact
+    id: name
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: ">>Nome da aplicação<<"
+      description: Nome da aplicação
+      placeholder: itau-fx6-app-test-01
     validations:
-      required: false
-  - type: textarea
-    id: what-happened
+      required: true
+  - type: input
+    id: acronym
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: ">>Sigla do producto<<"
+      description: Sigla do producto
+      placeholder: IU2
     validations:
       required: true
   - type: dropdown
-    id: version
+    id: application type
     attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-    validations:
-      required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
-  - type: dropdown
-    id: appType
-    attributes:
-      label: What type of Mule app do you need?
+      label: ">>Tipo de aplicação<<"
+      description: Tipo de aplicação
       options:
         - Experience API
         - Process API
         - System API
         - Batch Application
+  - type: checkboxes
+    id: visualizer labels
+    attributes:
+      label: ">>Rótulos para Anypoint Visualizer<<"
+      description: Rótulos para Anypoint Visualizer
+      options:
+        - name: Option 1
+          value: opt1
+        - name: Option 2
+          value: opt2
+        - name: Option 3
+          value: opt3
+      validations:
+      	allowMultiple: true
