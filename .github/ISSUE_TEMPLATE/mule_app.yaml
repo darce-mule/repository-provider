@@ -41,8 +41,6 @@ body:
       label: ">>Rótulos para Anypoint Visualizer<<"
       description: Rótulos para Anypoint Visualizer
       options:
-        - name: Option 1
-        - name: Option 2
-        - name: Option 3
+        - label: Option 1
       validations:
         allowMultiple: true
