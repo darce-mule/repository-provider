@@ -41,5 +41,15 @@ body:
       label: ">>Rótulos para Anypoint Visualizer<<"
       description: Rótulos para Anypoint Visualizer
       options:
-        - label: Option 1
-        - label: Option 2
+        - label: É uma API?
+          id: isAPI
+        - label: É uma aplicação em lote?
+          id: isBatch
+        - label: É uma Async API?
+          id: isAsyncAPI
+        - label: É uma Experience API?
+          id: isExperiencie
+        - label: É uma Process API?
+          id: isProcessAPI
+        - label: É uma System API?
+          id: isSystemAPI
