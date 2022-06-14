@@ -35,21 +35,23 @@ body:
         - Process API
         - System API
         - Batch Application
+    validations:
+      required: true
   - type: checkboxes
     id: visualizerLabels
     attributes:
       label: ">>Rotulos_para_Anypoint_Visualizer<<"
       description: Rótulos para Anypoint Visualizer
       options:
-        - label: É uma API?
+        - label: E_uma_API?
           id: isAPI
-        - label: É uma aplicação em lote?
+        - label: E_uma_aplicacao_em_lote?
           id: isBatch
-        - label: É uma Async API?
+        - label: E_uma_Async_API?
           id: isAsyncAPI
-        - label: É uma Experience API?
+        - label: E_uma_Experience_API?
           id: isExperiencie
-        - label: É uma Process API?
+        - label: E_uma_Process_API?
           id: isProcessAPI
-        - label: É uma System API?
+        - label: E_uma_System_API?
           id: isSystemAPI
