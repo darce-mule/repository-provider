@@ -46,7 +46,7 @@ jobs:
         
       - name: Show output - Tipo de aplicação
         id: test
-        run: echo '${{ toJson(steps.set-payload.outputs.json_var."Tipo de aplicação") }}'
+        run: echo '${{ steps.set-payload.outputs.json_var."Tipo de aplicação" }}'
 
 #  validate-member:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
