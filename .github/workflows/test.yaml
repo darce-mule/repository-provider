@@ -39,14 +39,17 @@ jobs:
       - name: Set output
         id: set-payload
         run: echo ::set-output name=json_var::'${{ steps.parse.outputs.payload }}'
-        
-      - name: Set output
-        id: set-test
-        run: echo ::set-output name=json_var2::'${{ github.event.issue.labels.*.name }}'
 
       - name: Show output
         id: show-payload
         run: echo "${{ toJson(steps.set-payload.outputs.json_var) }}"
+        
+      - name: Set output2
+        id: set-test
+        run: echo ::set-output name=json_var2::'${{ github.event.issue.labels.*.name }}'
+      - name: Show output2
+        id: show-test
+        run: echo "${{ toJson(steps.set-test.outputs.json_var2) }}"
 
 #  validate-member:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
