@@ -8,6 +8,7 @@ jobs:
   add-comment:
     name: Add comment on issue
     #runs-on: itau-linux
+    runs-on: ubuntu-latest
     if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
     steps:
       - name: Create comment
@@ -20,7 +21,8 @@ jobs:
 
   form-to-json:
     name: Convert Form Issue to JSON
-    #runs-on: itau-linux
+    #runs-on: itau-linuxx
+    runs-on: ubuntu-latest
     needs: [add-comment]
     outputs:
       payload-parsed: ${{ steps.payload.outputs.json_var }}
@@ -60,7 +62,8 @@ jobs:
   final-comment:
     name: Add comment on Issue
     needs: [create-github-repo]
-#    runs-on: itau-linux
+#    runs-on: itau-linuxx
+    runs-on: ubuntu-latest
     if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
     steps:
       - name: Create comment
@@ -73,7 +76,8 @@ jobs:
 
   auto-closing-issue:
     name: Auto-closing Issue
-#    runs-on: itau-linux
+#    runs-on: itau-linuxx
+    runs-on: ubuntu-latest
     needs: [final-comment]
     steps:
       - name: Close Issue
