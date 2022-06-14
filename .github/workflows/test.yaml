@@ -9,7 +9,7 @@ jobs:
     name: Add initial comment on issue
     #runs-on: itau-linux
     runs-on: ubuntu-latest
-    #if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
+    if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
     steps:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
@@ -21,7 +21,7 @@ jobs:
 
   form-to-json:
     name: Convert Form Issue to JSON
-    #runs-on: itau-linuxx
+    #runs-on: itau-linux
     runs-on: ubuntu-latest
     needs: [add-comment]
     outputs:
@@ -44,12 +44,9 @@ jobs:
         id: show-payload
         run: echo "${{ toJson(steps.set-payload.outputs.json_var) }}"
         
-      - name: Set output2
-        id: set-test
-        run: echo ::set-output name=json_var2::'${{ toJson(github.event.issue.labels.*.name) }}'
-      - name: Show output2
-        id: show-test
-        run: echo "${{ toJson(steps.set-test.outputs.json_var2) }}"
+      - name: Show output - Tipo de aplicação
+        id: test
+        run: echo "${{ steps.set-payload.outputs.json_var.'Tipo de aplicação' }}"
 
 #  validate-member:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
@@ -69,9 +66,9 @@ jobs:
   final-comment:
     name: Add final comment on Issue
     #needs: [create-github-repo]
-#    runs-on: itau-linuxx
+#    runs-on: itau-linux
     runs-on: ubuntu-latest
-    #if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
+    if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
     steps:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
