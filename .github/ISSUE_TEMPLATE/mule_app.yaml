@@ -1,7 +1,7 @@
 name: Criação de MuleSoft Application
 description: Criação de repositório de MuleSoft Application
 title: "Criação de Repositório"
-labels: ["application", "MuleSoft", "repositorio", "documentation"]
+labels: ["MuleSoft"]
 assignees:
   - ${{github.author}}
 body:
