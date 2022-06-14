@@ -37,11 +37,11 @@ jobs:
           label_maker_end: '<<'
 
       - name: Set output
-        id: payload
+        id: set-payload
         run: echo ::set-output name=json_var::'${{ steps.parse.outputs.payload }}'
 
       - name: Show output
-        id: payload
+        id: show-payload
         run: echo "${{ toJson(steps.payload.outputs.json_var) }}"
 
 #  validate-member:
@@ -61,7 +61,7 @@ jobs:
 
   final-comment:
     name: Add comment on Issue
-    needs: [create-github-repo]
+    #needs: [create-github-repo]
 #    runs-on: itau-linuxx
     runs-on: ubuntu-latest
     if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
