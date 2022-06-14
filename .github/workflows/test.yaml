@@ -46,7 +46,7 @@ jobs:
         
       - name: Set output2
         id: set-test
-        run: echo ::set-output name=json_var2::'${{ github.event.issue.labels }}'
+        run: echo ::set-output name=json_var2::'${{ toJson(github.event.issue.labels) }}'
       - name: Show output2
         id: show-test
         run: echo "${{ toJson(steps.set-test.outputs.json_var2) }}"
