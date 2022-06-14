@@ -33,8 +33,8 @@ jobs:
         with:
           issue_id: ${{ github.event.issue.number }} 
           separator: '###'
-          label_maker_start: '>>'
-          label_maker_end: '<<'
+          label_marker_start: '>>'
+          label_marker_end: '<<'
 
       - name: Set output
         id: set-payload
