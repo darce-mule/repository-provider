@@ -42,7 +42,7 @@ jobs:
 
       - name: Show output
         id: show-payload
-        run: echo "${{ steps.set-payload.outputs.json_var.Tipo_de_aplicacao' }}"
+        run: echo "${{ steps.set-payload.outputs.json_var.Tipo_de_aplicacao }}"
         
 
 
