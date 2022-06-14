@@ -39,6 +39,10 @@ jobs:
       - name: Set output
         id: set-payload
         run: echo ::set-output name=json_var::'${{ steps.parse.outputs.payload }}'
+        
+      - name: Set output
+        id: set-test
+        run: echo ::set-output name=json_var2::'${{ github.event.issue.labels.*.name }}'
 
       - name: Show output
         id: show-payload
