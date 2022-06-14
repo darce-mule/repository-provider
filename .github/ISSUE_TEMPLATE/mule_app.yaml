@@ -12,7 +12,7 @@ body:
   - type: input
     id: name
     attributes:
-      label: ">>Nome da aplicação<<"
+      label: ">>Nome_da_aplicacao<<"
       description: Nome da aplicacao
       placeholder: itau-fx6-app-test-01
     validations:
@@ -20,7 +20,7 @@ body:
   - type: input
     id: acronym
     attributes:
-      label: ">>Sigla do produto<<"
+      label: ">>Sigla_do_produto<<"
       description: Sigla do produto
       placeholder: IU2
     validations:
@@ -28,8 +28,8 @@ body:
   - type: dropdown
     id: applicationType
     attributes:
-      label: ">>Tipo de aplicação<<"
-      description: AppType
+      label: ">>Tipo_do_aplicacao<<"
+      description: Tipo do apliacao
       options:
         - Experience API
         - Process API
@@ -38,7 +38,7 @@ body:
   - type: checkboxes
     id: visualizerLabels
     attributes:
-      label: ">>Rótulos para Anypoint Visualizer<<"
+      label: ">>Rotulos_para_Anypoint_Visualizer<<"
       description: Rótulos para Anypoint Visualizer
       options:
         - label: É uma API?
