@@ -62,7 +62,7 @@ jobs:
       - name: Show entire json
         run: echo "${{ (steps.payload.outputs.json_var) }}"
       - name: Show app type
-        run: echo "${{ (sneeds.form-to-json.outputs.application-type) }}"
+        run: echo "${{ (needs.form-to-json.outputs.application-type) }}"
 
 #  create-github-repo:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/create-repo.yml@v1
