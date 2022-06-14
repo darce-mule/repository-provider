@@ -6,7 +6,7 @@ on:
 
 jobs:
   add-comment:
-    name: Add comment on issue
+    name: Add initial comment on issue
     #runs-on: itau-linux
     runs-on: ubuntu-latest
     #if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
@@ -60,7 +60,7 @@ jobs:
 #      payload: ${{ needs.form-to-json.outputs.payload-parsed }}
 
   final-comment:
-    name: Add comment on Issue
+    name: Add final comment on Issue
     #needs: [create-github-repo]
 #    runs-on: itau-linuxx
     runs-on: ubuntu-latest
