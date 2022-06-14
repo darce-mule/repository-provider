@@ -38,15 +38,13 @@ jobs:
 
       - name: Set output
         id: set-payload
-        run: echo ::set-output name=json_var::'${{ steps.parse.outputs.payload }}'
+        run: echo ::set-output name=json_var::'${{ steps.parse.outputs.payload-parsed }}'
 
       - name: Show output
         id: show-payload
         run: echo "${{ toJson(steps.set-payload.outputs.json_var) }}"
         
-      - name: Show output - Tipo de aplicação
-        id: test
-        run: echo '${{ steps.set-payload.outputs.json_var."Tipo de aplicação" }}'
+
 
 #  validate-member:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
