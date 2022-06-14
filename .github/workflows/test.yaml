@@ -55,7 +55,7 @@ jobs:
     steps:
       - name: Set validate output
         id: payload
-        run: echo ::set-output name=json_var::'${{ fromJson(needs.form-to-json.outputs.payload-parsed).Sigla_do_produto }}'
+        run: echo ::set-output name=json_var::'${{ fromJson(needs.form-to-json.outputs.payload-parsed) }}'
       - name: Show validate output
         run: echo "${{ (steps.payload.outputs.json_var) }}"
 
