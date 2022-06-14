@@ -26,6 +26,7 @@ jobs:
     needs: [add-comment]
     outputs:
       payload-parsed: ${{ steps.set-payload.outputs.json_var }}
+      application-type: ${{ steps.set-payload.outputs.json_var.Tipo_do_aplicacao }}
     steps:
       - name: Run issue form parser
         id: parse
@@ -42,7 +43,7 @@ jobs:
 
       - name: Show output
         id: show-payload
-        run: echo "${{ steps.set-payload.outputs.json_var.Tipo_de_aplicacao }}"
+        run: echo "${{ steps.set-payload.outputs.json_var.Tipo_do_aplicacao }}"
         
       - name: Show output3
         id: show-payload3
@@ -57,9 +58,11 @@ jobs:
     steps:
       - name: Set validate output
         id: payload
-        run: echo ::set-output name=json_var::'${{ fromJson(needs.form-to-json.outputs.payload-parsed).Sigla_do_produto }}'
-      - name: Show validate output
+        run: echo ::set-output name=json_var::'${{ fromJson(needs.form-to-json.outputs.payload-parsed) }}'
+      - name: Show entire json
         run: echo "${{ (steps.payload.outputs.json_var) }}"
+      - name: Show app type
+        run: echo "${{ (sneeds.form-to-json.outputs.application-type) }}"
 
 #  create-github-repo:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/create-repo.yml@v1
