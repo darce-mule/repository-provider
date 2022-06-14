@@ -9,7 +9,7 @@ jobs:
     name: Add comment on issue
     #runs-on: itau-linux
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
+    #if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
     steps:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
