@@ -27,14 +27,14 @@ jobs:
     outputs:
       payload-parsed: ${{ steps.set-payload.outputs.json_var }}
     steps:
-      - name: Run issue form parser
-        id: parse
-        uses: peter-murray/issue-forms-body-parser@v2.0.0
-        with:
-          issue_id: ${{ github.event.issue.number }} 
-          separator: '###'
-          label_marker_start: '>>'
-          label_marker_end: '<<'
+      #- name: Run issue form parser
+      #  id: parse
+      #  uses: peter-murray/issue-forms-body-parser@v2.0.0
+      #  with:
+      #    issue_id: ${{ github.event.issue.number }} 
+      #    separator: '###'
+      #    label_marker_start: '>>'
+      #    label_marker_end: '<<'
 
       - name: Set output
         id: set-payload
