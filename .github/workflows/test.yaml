@@ -16,7 +16,7 @@ jobs:
         with: 
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Acompanhe o setup através do link: https://github.com/${{github.repository}}/actions/run/${{github.run_id}}
+            Acompanhe o setup através do link: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
           reactions: '+1'  
 
   form-to-json:
@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Run issue form parser
         id: parse
-        uses: peter-evans/issue-forms-body-parser@v2.0.0
+        uses: peter-murray/issue-forms-body-parser@v2.0.0
         with:
           issue_id: ${{ github.event.issue.number }} 
           separator: '###'
