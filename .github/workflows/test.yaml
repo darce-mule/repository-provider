@@ -38,7 +38,7 @@ jobs:
 
       - name: Set output
         id: set-payload
-        run: echo ::set-output name=json_var::'${{ steps.parse.outputs.payload-parsed }}'
+        run: echo ::set-output name=json_var::'${{ steps.parse.outputs.payload }}'
 
       - name: Show output
         id: show-payload
@@ -46,12 +46,18 @@ jobs:
         
 
 
-#  validate-member:
-#    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
-#    needs: form-to-json
-#    with:
-#      sigla: ${{ fromJson(needs.form-to-json.) }}
-#    secrets: inherit
+  validate-member:
+    #uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
+    runs-on: ubuntu-latest
+    needs: form-to-json
+    outputs:
+      payload-parsed: ${{ steps.payload.outputs.json_var }}
+    steps:
+      - name: Set validate output
+        id: payload
+        run: echo ::set-output name=json_var::'${{ needs.form-to-json.outputs.payload-parsed }}'
+      - name: Show validate output
+        run: echo "${{ toJson(steps.payload.outputs.json_var) }}"
 
 #  create-github-repo:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/create-repo.yml@v1
