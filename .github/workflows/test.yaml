@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: form-to-json
     outputs:
-      template-name: ${{ steps.step1.outputs.json_var }}
+      template-name: ${{ steps.set-template.outputs.template }}
     steps:
       - name: Set Experience API repository name
         id: experience-api
@@ -75,13 +75,22 @@ jobs:
         id: batch-app
         run: echo ::set-output name=repo_name::'batch-repo-name-here'
         
-      - name: Step 3
-        id: step3
+      - name: Set template name
+        id: set-template
         run: |
-          if [ "${{ needs.form-to-json.outputs.application-type }}" == "Process API" ]; then
-          echo "Process API"
+          if [ "${{ needs.form-to-json.outputs.application-type }}" == "Experience API" ]; then
+          echo ::set-output name=template::'${{ steps.experience-api.outputs.repo_name }}'
           else
-          echo "Otra API"
+          if [ "${{ needs.form-to-json.outputs.application-type }}" == "Process API" ]; then
+          echo ::set-output name=template::'${{ steps.process-api.outputs.repo_name }}'          
+          else
+          if [ "${{ needs.form-to-json.outputs.application-type }}" == "Domain API" ]; then
+          echo ::set-output name=template::'${{ steps.domain-api.outputs.repo_name }}'          
+          else
+          if [ "${{ needs.form-to-json.outputs.application-type }}" == "System API" ]; then
+          echo ::set-output name=template::'${{ steps.system-api.outputs.repo_name }}'          
+          else
+          echo ::set-output name=template::'${{ steps.batch-app.outputs.repo_name }}'          
           fi
 
   validate-member:
