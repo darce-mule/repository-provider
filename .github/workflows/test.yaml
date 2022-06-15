@@ -78,20 +78,23 @@ jobs:
       - name: Set template name
         id: set-template
         run: |
-          if [ "${{ needs.form-to-json.outputs.application-type }}" == "Experience API" ]; then
-          echo ::set-output name=template::'${{ steps.experience-api.outputs.repo_name }}'
-          else
-          if [ "${{ needs.form-to-json.outputs.application-type }}" == "Process API" ]; then
-          echo ::set-output name=template::'${{ steps.process-api.outputs.repo_name }}'          
-          else
-          if [ "${{ needs.form-to-json.outputs.application-type }}" == "Domain API" ]; then
-          echo ::set-output name=template::'${{ steps.domain-api.outputs.repo_name }}'          
-          else
-          if [ "${{ needs.form-to-json.outputs.application-type }}" == "System API" ]; then
-          echo ::set-output name=template::'${{ steps.system-api.outputs.repo_name }}'          
-          else
-          echo ::set-output name=template::'${{ steps.batch-app.outputs.repo_name }}'          
-          fi
+          case ${{ needs.form-to-json.outputs.application-type }} in
+            "Experience API")
+              echo ::set-output name=template::'${{ steps.experience-api.outputs.repo_name }}'
+            ;;
+            "Process API")
+              echo ::set-output name=template::'${{ steps.process-api.outputs.repo_name }}'          
+            ;;
+            "Domain API")
+              echo ::set-output name=template::'${{ steps.domain-api.outputs.repo_name }}'
+            ;;
+            "System API")
+              echo ::set-output name=template::'${{ steps.system-api.outputs.repo_name }}'          
+            ;;
+            "Batch Application")
+              echo ::set-output name=template::'${{ steps.batch-app.outputs.repo_name }}'          
+            ;;
+          esac
 
   validate-member:
     #uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
