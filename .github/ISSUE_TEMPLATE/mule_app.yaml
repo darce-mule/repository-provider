@@ -34,6 +34,7 @@ body:
         - Experience API
         - Process API
         - System API
+        - Domain API
         - Batch Application
     validations:
       required: true
@@ -43,15 +44,5 @@ body:
       label: ">>Rotulos_para_Anypoint_Visualizer<<"
       description: Rótulos para Anypoint Visualizer
       options:
-        - label: E_uma_API?
-          id: isAPI
-        - label: E_uma_aplicacao_em_lote?
-          id: isBatch
         - label: E_uma_Async_API?
           id: isAsyncAPI
-        - label: E_uma_Experience_API?
-          id: isExperiencie
-        - label: E_uma_Process_API?
-          id: isProcessAPI
-        - label: E_uma_System_API?
-          id: isSystemAPI
