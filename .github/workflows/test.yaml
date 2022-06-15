@@ -60,9 +60,9 @@ jobs:
         id: payload
         run: echo ::set-output name=json_var::'${{ fromJson(needs.form-to-json.outputs.payload-parsed) }}'
       - name: Show entire json
-        run: echo "${{ fromJson(needs.form-to-json.outputs.payload-parsed) }}"
+        run: echo "${{ toJson(needs.form-to-json.outputs.payload-parsed) }}"
       - name: Show application type
-        run: echo "${{ (needs.form-to-json.outputs.application-type) }}"
+        run: echo "${{ needs.form-to-json.outputs.application-type }}"
 
 #  create-github-repo:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/create-repo.yml@v1
