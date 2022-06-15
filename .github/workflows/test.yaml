@@ -78,7 +78,7 @@ jobs:
       - name: Set template name
         id: set-template
         run: |
-          case ${{ needs.form-to-json.outputs.application-type }} in
+          case "${{ needs.form-to-json.outputs.application-type }}" in
             "Experience API")
               echo ::set-output name=template::'${{ steps.experience-api.outputs.repo_name }}'
             ;;
