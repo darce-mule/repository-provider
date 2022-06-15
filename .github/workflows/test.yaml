@@ -26,7 +26,7 @@ jobs:
     needs: [add-comment]
     outputs:
       payload-parsed: ${{ steps.set-payload.outputs.json_var }}
-      application-type: ${{ steps.set-payload.outputs.json_var.Tipo_do_aplicacao }}
+      application-type: ${{ toJson(steps.set-payload.outputs.json_var).Tipo_do_aplicacao }}
     steps:
       - name: Run issue form parser
         id: parse
@@ -43,11 +43,11 @@ jobs:
 
       - name: Show output
         id: show-payload
-        run: echo "${{ steps.set-payload.outputs.json_var.Tipo_do_aplicacao }}"
+        run: echo "${{ toJson(steps.set-payload.outputs.json_var).Tipo_do_aplicacao }}"
         
       - name: Show output3
         id: show-payload3
-        run: echo "${{ steps.set-payload.outputs.json_var }}"
+        run: echo "${{ toJson(steps.set-payload.outputs.json_var) }}"
 
   validate-member:
     #uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
