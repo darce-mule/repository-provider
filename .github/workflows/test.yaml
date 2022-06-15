@@ -56,6 +56,10 @@ jobs:
       - name: Show output3
         id: show-payload3
         run: echo "${{ fromJson(steps.set-payload.outputs.json_var) }}"
+        
+      - name: Show output4
+        id: show-payload4
+        run: echo "${{ (fromJson(steps.set-payload.outputs.json_var)).Tipo_do_aplicacao }}"
 
   validate-member:
     #uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
