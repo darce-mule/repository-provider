@@ -71,7 +71,9 @@ jobs:
   validate-member:
     #uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/validate-member.yml@v1
     runs-on: ubuntu-latest
-    needs: form-to-json
+    needs: 
+      - form-to-json
+      - set-project-template
     outputs:
       payload-parsed: ${{ steps.payload.outputs.json_var }}
     steps:
@@ -82,6 +84,8 @@ jobs:
         run: echo "${{ toJson(needs.form-to-json.outputs.payload-parsed) }}"
       - name: Show application type
         run: echo "${{ needs.form-to-json.outputs.application-type }}"
+      - name: Show project template
+        run: echo "${{ needs.set-project-template.outputs.template-project }}"
 
 #  create-github-repo:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/create-repo.yml@v1
