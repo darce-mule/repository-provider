@@ -112,8 +112,8 @@ jobs:
         run: echo "${{ toJson(needs.form-to-json.outputs.payload-parsed) }}"
       - name: Show application type
         run: echo "${{ needs.form-to-json.outputs.application-type }}"
-      - name: Show project template
-        run: echo "${{ needs.set-project-template.outputs.template-project }}"
+      - name: Show project template name
+        run: echo "${{ needs.set-project-template.outputs.template-name }}"
 
 #  create-github-repo:
 #    uses: itau-corp/itau-up2-reusable-workflows-setup-iupipes/.github/workflow/create-repo.yml@v1
