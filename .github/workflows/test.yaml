@@ -75,6 +75,7 @@ jobs:
   final-comment:
     name: Add final comment on Issue
     #needs: [create-github-repo]
+    needs: [validate-member]
 #    runs-on: itau-linux
     runs-on: ubuntu-latest
     if: ${{ contains(github.event.issue.labels.*.name, 'MuleSoft') }}
