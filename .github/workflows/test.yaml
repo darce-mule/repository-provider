@@ -26,7 +26,7 @@ jobs:
     needs: [add-comment]
     outputs:
       payload-parsed: ${{ steps.set-payload.outputs.json_var }}
-      application-type: ${{ toJson(steps.set-payload.outputs.json_var).Tipo_do_aplicacao }}
+      application-type: ${{ (fromJson(steps.set-payload.outputs.json_var)).Tipo_do_aplicacao }}
     steps:
       - name: Run issue form parser
         id: parse
@@ -45,20 +45,8 @@ jobs:
         id: show-payload
         run: echo "${{ steps.set-payload.outputs.json_var }}"
         
-      - name: Show output1
-        id: show-payload1
-        run: echo "${{ steps.set-payload.outputs.json_var.Tipo_do_aplicacao }}"
-        
-      - name: Show output2
-        id: show-payload2
-        run: echo "${{ toJson(steps.set-payload.outputs.json_var) }}"
-        
-      - name: Show output3
-        id: show-payload3
-        run: echo "${{ fromJson(steps.set-payload.outputs.json_var) }}"
-        
-      - name: Show output4
-        id: show-payload4
+      - name: Show selected application type
+        id: show-application-type
         run: echo "${{ (fromJson(steps.set-payload.outputs.json_var)).Tipo_do_aplicacao }}"
 
   validate-member:
@@ -72,8 +60,8 @@ jobs:
         id: payload
         run: echo ::set-output name=json_var::'${{ fromJson(needs.form-to-json.outputs.payload-parsed) }}'
       - name: Show entire json
-        run: echo "${{ (steps.payload.outputs.json_var) }}"
-      - name: Show app type
+        run: echo "${{ fromJson(needs.form-to-json.outputs.payload-parsed) }}"
+      - name: Show application type
         run: echo "${{ (needs.form-to-json.outputs.application-type) }}"
 
 #  create-github-repo:
